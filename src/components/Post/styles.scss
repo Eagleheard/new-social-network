@@ -1,0 +1,33 @@
+@import "constants/const-styles.scss";
+
+.post {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
+  border: 1px solid $light-gray;
+  border-top: none;
+  border-left: none;
+  width: 51.5%;
+
+  &__user {
+    display: flex;
+    flex-direction: column;
+    font-family: $lato;
+
+    &-photo {
+      width: 50px;
+      margin: 10px;
+    }
+  }
+
+  &__nickname {
+    font-weight: bold;
+  }
+
+  &__message {
+    margin-top: 5px;
+    font-size: 14px;
+  }
+}
