@@ -1,0 +1,78 @@
+@import "constants/const-styles.scss";
+@import "constants/media-queries.scss";
+
+.button {
+  background: transparent;
+  color: $primary;
+  border: 1px solid $secondary;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: $lato;
+  font-size: 18px;
+  padding: 5px;
+  margin: 0 10px;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $secondary;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  &__pagination-btn {
+    background-color: $secondary;
+    border-radius: 50%;
+    width: 8%;
+    padding: 0;
+    align-self: center;
+    border: none;
+
+    &:disabled {
+      background-color: $gray;
+    }
+  }
+
+  &__sign-in {
+    background-color: $primary;
+    color: $black;
+    width: 30%;
+  }
+
+  &__message {
+    color: $black;
+    border: 1px solid $black;
+    width: 40%;
+    margin: 0 20px;
+    padding: 10px;
+    font-family: $lato;
+
+    &:hover {
+      color: $red;
+      background-color: $black;
+      transition: background-color 0.2s ease-in-out;
+    }
+  }
+
+  &__header {
+    color: $black;
+    border: 1px solid $black;
+    width: 50%;
+    margin-top: auto;
+    margin-bottom: 50px;
+    font-family: $lato;
+    margin-left: 15px;
+
+    &:hover {
+      color: $primary;
+      background-color: $black;
+      transition: background-color 0.2s ease-in-out;
+    }
+  }
+
+  &__logout {
+    width: 7%;
+  }
+
+  @include media-table-large {
+    width: 25%;
+  }
+}
