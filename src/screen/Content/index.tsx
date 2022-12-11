@@ -31,7 +31,6 @@ const initialStore = [
     post: "Post5",
   },
 ];
-
 export const Content = () => {
   return (
     <div className="content">
