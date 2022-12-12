@@ -1,10 +1,8 @@
 @import "constants/const-styles.scss";
 
 .App {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1.3fr 1.3fr 1.6fr;
   width: 100%;
   min-height: 100vh;
 }
