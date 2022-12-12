@@ -68,6 +68,18 @@
     }
   }
 
+  &__input {
+    margin: 10px 0 10px 0;
+    align-self: flex-end;
+    color: $black;
+
+    &:hover {
+      color: $red;
+      background-color: $black;
+      transition: background-color 0.2s ease-in-out;
+    }
+  }
+
   &__logout {
     width: 7%;
   }

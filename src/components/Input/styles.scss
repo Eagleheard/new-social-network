@@ -1,0 +1,16 @@
+@import "constants/const-styles.scss";
+@import "constants/base.scss";
+
+.input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__field {
+    resize: none;
+    border: none;
+    font-family: $lato;
+    padding: 20px;
+    font-size: 16px;
+  }
+}

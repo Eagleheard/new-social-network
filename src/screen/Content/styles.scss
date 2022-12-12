@@ -2,5 +2,28 @@
 
 .content {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   width: 69%;
+  height: 100vh;
+
+  &__label {
+    font-family: $lato;
+    align-self: flex-start;
+    margin: 10px 0;
+    padding: 0 15px;
+  }
+
+  &__user-photo {
+    width: 50px;
+  }
+
+  &__new-post {
+    display: flex;
+    align-items: flex-start;
+    width: 50%;
+    border-bottom: 1px solid $light-gray;
+    padding: 0 15px;
+  }
 }
