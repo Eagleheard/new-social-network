@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { Header } from "./components";
-import { Content, News } from "screen";
+import { Content, News, Sidebar } from "screen";
 
 import "./App.css";
 
@@ -14,6 +14,7 @@ function App() {
         <Route path="/" element={<Content />} />
         <Route path="/news" element={<News />} />
       </Routes>
+      <Sidebar />
     </div>
   );
 }

@@ -43,7 +43,7 @@ export const Content = () => {
         <Input />
       </div>
       {initialStore.map((el) => (
-        <Post {...el} />
+        <Post key={el.post} {...el} />
       ))}
     </div>
   );
