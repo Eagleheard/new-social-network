@@ -1,12 +1,8 @@
 import React from "react";
 
-import "./styles.scss";
+import { IPost } from "types/interfaces";
 
-interface IPost {
-  photo: string;
-  nickname: string;
-  post: string;
-}
+import "./styles.scss";
 
 export const Post: React.FC<IPost> = ({ photo, nickname, post }) => {
   return (
