@@ -38,16 +38,16 @@
   }
 
   &__message {
-    color: $black;
-    border: 1px solid $black;
+    color: $primary;
     width: 40%;
     margin: 0 20px;
     padding: 10px;
     font-family: $lato;
+    background-color: $light-purple;
+    border: none;
 
     &:hover {
-      color: $red;
-      background-color: $black;
+      background-color: $purple;
       transition: background-color 0.2s ease-in-out;
     }
   }
