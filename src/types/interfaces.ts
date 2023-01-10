@@ -1,8 +1,12 @@
 export interface IPost {
   id: number;
   photo: string;
-  nickname: string;
   comment: string;
+  user: {
+    name: string;
+    lastName: string;
+    photo: string;
+  };
 }
 
 export interface ISign {
