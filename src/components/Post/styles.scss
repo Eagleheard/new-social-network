@@ -10,6 +10,10 @@
   border-left: none;
   width: 100%;
 
+  &:hover {
+    background-color: $light-gray;
+  }
+
   &__user {
     display: flex;
     flex-direction: column;

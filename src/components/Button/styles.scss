@@ -38,32 +38,33 @@
   }
 
   &__message {
-    color: $black;
-    border: 1px solid $black;
+    color: $primary;
     width: 40%;
     margin: 0 20px;
     padding: 10px;
     font-family: $lato;
+    background-color: $light-purple;
+    border: none;
 
     &:hover {
-      color: $red;
-      background-color: $black;
+      background-color: $purple;
       transition: background-color 0.2s ease-in-out;
     }
   }
 
   &__header {
     color: $black;
-    border: 1px solid $black;
+    border: 1px solid $purple;
     width: 50%;
     margin-top: auto;
     margin-bottom: 50px;
     font-family: $lato;
     margin-left: 15px;
+    background-color: $primary;
 
     &:hover {
       color: $primary;
-      background-color: $black;
+      background-color: $purple;
       transition: background-color 0.2s ease-in-out;
     }
   }
@@ -71,12 +72,17 @@
   &__input {
     margin: 10px 0 10px 0;
     align-self: flex-end;
-    color: $black;
+    color: $primary;
+    background-color: $light-purple;
+    border: none;
 
     &:hover {
-      color: $red;
-      background-color: $black;
+      background-color: $purple;
       transition: background-color 0.2s ease-in-out;
+    }
+
+    &:disabled {
+      background-color: $purple-disabled;
     }
   }
 
