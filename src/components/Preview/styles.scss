@@ -28,5 +28,20 @@
   &__login {
     width: 50%;
     padding: 0 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__welcome {
+    font-family: $lato;
+    font-size: 36px;
+
+    &-description {
+      font-family: $lato;
+      color: $gray;
+      font-family: 20px;
+    }
   }
 }
