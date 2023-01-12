@@ -32,9 +32,14 @@
   }
 
   &__sign-in {
-    background-color: $primary;
-    color: $black;
+    background-color: $light-purple;
+    color: $primary;
     width: 30%;
+    border: none;
+
+    &:hover {
+      background-color: $purple;
+    }
   }
 
   &__message {
