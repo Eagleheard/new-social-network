@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { SignIn } from "components/Authorization";
+import { SignIn, SignUp } from "components/Authorization";
 
 import "./styles.scss";
 
 export const Preview = () => {
+  const [isSignInVisible, setIsSignInVisible] = useState<boolean>(true);
+  const [isSignUpVisible, setIsSignUpVisible] = useState<boolean>(false);
+
+  const handleSwitch = () => {
+    if (isSignInVisible) {
+      setIsSignInVisible(false);
+      setIsSignUpVisible(true);
+      return;
+    }
+    if (isSignUpVisible) {
+      setIsSignInVisible(true);
+      setIsSignUpVisible(false);
+      return;
+    }
+  };
   return (
     <div className="preview__container">
       <div className="preview">
@@ -14,11 +29,11 @@ export const Preview = () => {
           <p className="preview__welcome-description">
             First of all you need to login!
           </p>
-          <SignIn
-            handleSwitch={function (): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
+          {isSignInVisible ? (
+            <SignIn handleSwitch={handleSwitch} />
+          ) : (
+            <SignUp handleSwitch={handleSwitch} />
+          )}
         </div>
       </div>
     </div>
