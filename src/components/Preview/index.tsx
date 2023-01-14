@@ -23,7 +23,9 @@ export const Preview = () => {
   return (
     <div className="preview__container">
       <div className="preview">
-        <div className="preview__description">description</div>
+        <div className="preview__description">
+          <h1>description</h1>
+        </div>
         <div className="preview__login">
           <h1 className="preview__welcome">Hello Again!</h1>
           <p className="preview__welcome-description">
