@@ -6,7 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "hooks/useAuth";
 import { ToastProvider } from "hooks/useToast";
-import { Preview } from "components";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -16,7 +15,7 @@ root.render(
     <BrowserRouter>
       <ToastProvider>
         <AuthProvider>
-          <Preview />
+          <App />
         </AuthProvider>
       </ToastProvider>
     </BrowserRouter>

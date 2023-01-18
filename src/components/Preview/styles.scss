@@ -19,10 +19,29 @@
     height: 100vh;
   }
 
+  &__image {
+    width: 50%;
+    transition: 1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
   &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: $purple-disabled;
     width: 50%;
     height: 100%;
+
+    &-text {
+      font-family: $lato;
+      color: $primary;
+      margin-bottom: 80px;
+    }
   }
 
   &__login {
@@ -41,6 +60,7 @@
       font-family: $lato;
       color: $gray;
       font-family: 20px;
+      margin-bottom: 30px;
     }
   }
 }
