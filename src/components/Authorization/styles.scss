@@ -1,11 +1,11 @@
-@import 'constants/const-styles.scss';
-@import 'constants/media-queries.scss';
+@import "constants/const-styles.scss";
+@import "constants/media-queries.scss";
 
 .login {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 60%;
 
   &__form {
     width: 80%;
@@ -39,7 +39,7 @@
   &__lastname {
     height: 40px;
     width: 100%;
-    border: 2px solid $search-primary;
+    border: 2px solid $purple;
     border-radius: 5px;
     outline: none;
     background: $primary;
@@ -79,7 +79,7 @@
     }
 
     &:focus ~ .login__label {
-      color: $search-primary;
+      color: $light-purple;
     }
   }
 

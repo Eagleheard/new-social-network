@@ -1,27 +1,52 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import { Header } from "./components";
+import { Header, Preview } from "./components";
 import { Content, News, Sidebar } from "screen";
-import { AuthProvider } from "hooks/useAuth";
-import { ToastProvider } from "hooks/useToast";
+import { useAuth } from "hooks/useAuth";
+import { useToast } from "hooks/useToast";
+import { ToastOptions } from "types/enumerators";
+import { authorization } from "api/authorization";
 
 import "./App.css";
 
 function App() {
+  const { user, setUser } = useAuth();
+  const { openToast } = useToast();
+
+  const checkUser = async () => {
+    try {
+      const { data } = await authorization();
+      setUser(data);
+    } catch ({
+      response: {
+        data: { message },
+      },
+    }) {
+      if (message !== "Need authorization") {
+        openToast(String(message), ToastOptions.error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    checkUser();
+  }, []);
   return (
-    <div className="App">
-      <AuthProvider>
-        <ToastProvider>
+    <>
+      {user ? (
+        <div className="App">
           <Header />
           <Routes>
             <Route path="/" element={<Content />} />
             <Route path="/news" element={<News />} />
           </Routes>
           <Sidebar />
-        </ToastProvider>
-      </AuthProvider>
-    </div>
+        </div>
+      ) : (
+        <Preview />
+      )}
+    </>
   );
 }
 
