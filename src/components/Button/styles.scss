@@ -103,6 +103,19 @@
     }
   }
 
+  &__user {
+    align-self: flex-end;
+    margin-top: -120px;
+    border-radius: 50px;
+    border: 1px solid $gray;
+    padding: 5px 15px;
+    color: $black;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+
   @include media-table-large {
     width: 25%;
   }
