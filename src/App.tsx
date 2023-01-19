@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { Header, Preview } from "./components";
-import { Content, News, Sidebar } from "screen";
+import { Content, News, Profile, Sidebar } from "screen";
 import { useAuth } from "hooks/useAuth";
 import { useToast } from "hooks/useToast";
 import { ToastOptions } from "types/enumerators";
@@ -40,6 +40,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Content />} />
             <Route path="/news" element={<News />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
           <Sidebar />
         </div>

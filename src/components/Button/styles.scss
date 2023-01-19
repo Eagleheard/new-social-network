@@ -92,7 +92,15 @@
   }
 
   &__logout {
-    width: 7%;
+    width: 100%;
+    border: none;
+    color: $black;
+    margin: 0;
+    border-radius: 0;
+
+    &:hover {
+      background-color: $light-gray;
+    }
   }
 
   @include media-table-large {
