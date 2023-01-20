@@ -61,7 +61,7 @@ export const Header = () => {
           <TagIcon fontSize="large" />
           <li className="header__link-label">News</li>
         </NavLink>
-        <NavLink to="/profile" className="header__link link">
+        <NavLink to={`/profile/${user.id}`} className="header__link link">
           <PersonIcon fontSize="large" />
           <li className="header__link-label">Profile</li>
         </NavLink>

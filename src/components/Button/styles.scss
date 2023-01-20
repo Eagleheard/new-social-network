@@ -110,6 +110,8 @@
     border: 1px solid $gray;
     padding: 5px 15px;
     color: $black;
+    font-family: $lato;
+    font-weight: bold;
 
     &:hover {
       background-color: $light-gray;

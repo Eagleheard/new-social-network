@@ -3,7 +3,7 @@
 .profile {
   &__preview {
     width: 100%;
-    height: 40vh;
+    height: 25vh;
   }
   &__user-photo {
     position: relative;
@@ -32,6 +32,54 @@
     font-weight: bold;
   }
 
+  &__name {
+    font-family: $lato;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 50px;
+    padding: 0 20px;
+  }
+
+  &__usertag {
+    font-family: $lato;
+    padding: 0 20px;
+    opacity: 0.6;
+  }
+
+  &__description {
+    font-family: $lato;
+    font-weight: normal;
+    padding: 0 20px;
+    margin-top: 20px;
+  }
+
+  &__followers {
+    display: flex;
+    width: 30%;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  &__followed {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 0 10px;
+  }
+
+  &__follower {
+    display: flex;
+    width: 30%;
+    margin: 0 30px;
+    justify-content: space-around;
+  }
+
+  &__counter {
+    font-weight: bold;
+    margin: 0 10px;
+  }
+
   &__post-count {
     opacity: 0.6;
   }
@@ -51,5 +99,10 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+  }
+
+  &__posts {
+    width: 100%;
+    margin-top: 30px;
   }
 }
