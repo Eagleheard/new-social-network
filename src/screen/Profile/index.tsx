@@ -10,9 +10,12 @@ import preview from "assets/wave.jpg";
 
 import "./styles.scss";
 import { useAuth } from "hooks";
+import { fetchFollowed, fetchFollowers } from "api/followSystem";
 
 export const Profile = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
+  const [followed, setFollowed] = useState([]);
+  const [followers, setFollowers] = useState([]);
   const { id } = useParams<string>();
   const { user } = useAuth();
 
@@ -25,8 +28,28 @@ export const Profile = () => {
     }
   };
 
+  const getFollowed = async () => {
+    try {
+      const { data } = await fetchFollowed();
+      setFollowed(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getFollowers = async () => {
+    try {
+      const { data } = await fetchFollowers();
+      setFollowers(data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
     getPosts();
+    getFollowed();
+    getFollowers();
   }, []);
 
   return (
@@ -53,15 +76,16 @@ export const Profile = () => {
         <h3 className="profile__description">Description</h3>
         <div className="profile__followers">
           <div className="profile__followed">
-            <p className="profile__counter">11</p>
+            <p className="profile__counter">{followed.length}</p>
             <p>followed</p>
           </div>
           <div className="profile__follower">
-            <p className="profile__counter">10</p>
+            <p className="profile__counter">{followers.length}</p>
             <p>followers</p>
           </div>
         </div>
         <div className="profile__posts">
+          <h1 className="profile__posts-laber">Posts</h1>
           {posts.length !== 0 &&
             posts.map((post) => <Post key={post.id} {...post} />)}
         </div>

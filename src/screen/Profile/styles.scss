@@ -66,13 +66,32 @@
     width: 100%;
     justify-content: space-around;
     margin: 0 10px;
+    font-family: $lato;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $light-gray;
+      transition: background-color 0.2s ease-in-out;
+    }
   }
 
   &__follower {
     display: flex;
-    width: 30%;
     margin: 0 30px;
     justify-content: space-around;
+    font-family: $lato;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $light-gray;
+      transition: background-color 0.2s ease-in-out;
+    }
   }
 
   &__counter {
