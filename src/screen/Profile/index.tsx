@@ -1,21 +1,26 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import classNames from "classnames";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-import { Button, Post } from "components";
+import { useAuth } from "hooks";
+import { fetchFollowed, fetchFollowers } from "api/followSystem";
+import { Button, Post, UserCard } from "components";
 import { fetchPostsByUser } from "api/fetchPosts";
-import { IPost } from "types/interfaces";
+import { IPost, IUser } from "types/interfaces";
 
 import preview from "assets/wave.jpg";
 
 import "./styles.scss";
-import { useAuth } from "hooks";
-import { fetchFollowed, fetchFollowers } from "api/followSystem";
+import { profileOption } from "types/enumerators";
 
 export const Profile = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
-  const [followed, setFollowed] = useState([]);
-  const [followers, setFollowers] = useState([]);
+  const [followed, setFollowed] = useState<IUser[]>([]);
+  const [followers, setFollowers] = useState<IUser[]>([]);
+  const [isPostsVisible, setIsPostsVisible] = useState(true);
+  const [isFollowersVisible, setIsFollowersVisible] = useState(false);
+  const [isFollowedsVisible, setIsFollowedsVisible] = useState(false);
   const { id } = useParams<string>();
   const { user } = useAuth();
 
@@ -43,6 +48,26 @@ export const Profile = () => {
       setFollowers(data);
     } catch (e) {
       console.log(e);
+    }
+  };
+
+  const handleSwitch = (option: string) => {
+    switch (option) {
+      case profileOption.POSTS:
+        setIsPostsVisible(true);
+        setIsFollowedsVisible(false);
+        setIsFollowersVisible(false);
+        break;
+      case profileOption.FOLLOWED:
+        setIsPostsVisible(false);
+        setIsFollowedsVisible(true);
+        setIsFollowersVisible(false);
+        break;
+      case profileOption.FOLLOWERS:
+        setIsPostsVisible(false);
+        setIsFollowedsVisible(false);
+        setIsFollowersVisible(true);
+        break;
     }
   };
 
@@ -75,20 +100,54 @@ export const Profile = () => {
         <p className="profile__usertag">{user.email}</p>
         <h3 className="profile__description">Description</h3>
         <div className="profile__followers">
-          <div className="profile__followed">
+          <p
+            className={classNames("profile__link", {
+              "profile__link--active": isPostsVisible === true,
+            })}
+            onClick={() => handleSwitch(profileOption.POSTS)}
+          >
+            posts
+          </p>
+          <div
+            className={classNames("profile__link", {
+              "profile__link--active": isFollowedsVisible === true,
+            })}
+            onClick={() => handleSwitch(profileOption.FOLLOWED)}
+          >
             <p className="profile__counter">{followed.length}</p>
-            <p>followed</p>
+            <p className="profile__link-label">followed</p>
           </div>
-          <div className="profile__follower">
+          <div
+            className={classNames("profile__link", {
+              "profile__link--active": isFollowersVisible === true,
+            })}
+            onClick={() => handleSwitch(profileOption.FOLLOWERS)}
+          >
             <p className="profile__counter">{followers.length}</p>
-            <p>followers</p>
+            <p className="profile__link-label">followers</p>
           </div>
         </div>
-        <div className="profile__posts">
-          <h1 className="profile__posts-laber">Posts</h1>
-          {posts.length !== 0 &&
-            posts.map((post) => <Post key={post.id} {...post} />)}
-        </div>
+        {isPostsVisible && (
+          <div className="profile__posts">
+            <h1 className="profile__posts-laber">Posts</h1>
+            {posts.length !== 0 &&
+              posts.map((post) => <Post key={post.id} {...post} />)}
+          </div>
+        )}
+        {isFollowedsVisible && (
+          <div className="profile__followeds-list">
+            {followed.map((followed) => (
+              <UserCard key={followed.id} {...followed} />
+            ))}
+          </div>
+        )}
+        {isFollowersVisible && (
+          <div className="profile__followers-list">
+            {followers.map((follower) => (
+              <UserCard key={follower.id} {...follower} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

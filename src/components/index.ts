@@ -1,3 +1,4 @@
+export { UserCard } from "./UserCard/index";
 export { Header } from "./Header/index";
 export { Input } from "./Input/index";
 export { Button } from "./Button/index";

@@ -25,6 +25,7 @@
   &__user-info {
     font-family: $lato;
     margin-left: 50px;
+    opacity: 0.7;
   }
 
   &__username {
@@ -55,10 +56,11 @@
 
   &__followers {
     display: flex;
-    width: 30%;
-    justify-content: flex-start;
+    width: 50%;
+    justify-content: space-between;
     align-items: center;
     margin-top: 20px;
+    margin-left: 20px;
   }
 
   &__followed {
@@ -96,7 +98,7 @@
 
   &__counter {
     font-weight: bold;
-    margin: 0 10px;
+    margin-right: 10px;
   }
 
   &__post-count {
@@ -122,6 +124,37 @@
 
   &__posts {
     width: 100%;
+    margin-top: 30px;
+  }
+
+  &__link {
+    display: flex;
+    text-decoration: none;
+    font-family: $roboto;
+    font-size: 18px;
+    text-align: start;
+    color: $black;
+    transition: background-color 0.2s ease-in-out;
+    border-bottom: 1px solid $primary;
+    cursor: pointer;
+
+    &-label {
+      font-family: $roboto;
+      font-size: 18px;
+    }
+
+    &--active {
+      font-weight: bold;
+    }
+
+    &:hover {
+      transition: background-color 0.2s ease-in-out;
+      border-bottom: 1px solid $black;
+    }
+  }
+
+  &__followers-list,
+  &__followeds-list {
     margin-top: 30px;
   }
 }
