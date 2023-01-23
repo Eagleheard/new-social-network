@@ -118,6 +118,15 @@
     }
   }
 
+  &__follow {
+    color: $black;
+    border: 1px solid $gray;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+
   @include media-table-large {
     width: 25%;
   }
