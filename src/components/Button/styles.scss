@@ -121,6 +121,7 @@
   &__follow {
     color: $black;
     border: 1px solid $gray;
+    background-color: $primary;
 
     &:hover {
       background-color: $light-gray;
