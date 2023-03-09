@@ -4,18 +4,24 @@ export enum AuthorizationOptions {
 }
 
 export enum userOptions {
-  ADMIN = 'ADMIN',
-  MANAGER = 'MANAGER',
+  ADMIN = "ADMIN",
+  MANAGER = "MANAGER",
+}
+
+export enum profileOption {
+  POSTS = "POSTS",
+  FOLLOWERS = "FOLLOWERS",
+  FOLLOWED = "FOLLOWED",
 }
 
 export const EMAIL_VALIDATION =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export enum ToastOptions {
-  error = 'error',
-  success = 'success',
+  error = "error",
+  success = "success",
 }
 
 export enum PaginationOptions {
-  dots = '...',
+  dots = "...",
 }

@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import TagIcon from "@mui/icons-material/Tag";
+import PersonIcon from "@mui/icons-material/Person";
 import { NavLink } from "react-router-dom";
 
-import { useAuth, useToast } from "hooks";
+import { useAuth, useClickOutside, useToast } from "hooks";
 import { authorization, logout } from "api/authorization";
 import { ToastOptions } from "types/enumerators";
-import { Portal } from "components";
-import { SignIn, SignUp } from "components/Authorization";
 import { Button } from "components/Button";
 
 import icon from "assets/icon.png";
@@ -15,23 +14,16 @@ import icon from "assets/icon.png";
 import "./styles.scss";
 
 export const Header = () => {
-  const [isSignInVisible, setIsSignInVisible] = useState<boolean>(false);
-  const [isSignUpVisible, setIsSignUpVisible] = useState<boolean>(false);
+  const [isLogoutVisible, setIsLogoutVisible] = useState(false);
   const { user, setUser } = useAuth();
   const { openToast } = useToast();
+  const logoutRef = useRef(null);
 
-  const handleSwitch = () => {
-    if (isSignInVisible) {
-      setIsSignInVisible(false);
-      setIsSignUpVisible(true);
-      return;
-    }
-    if (isSignUpVisible) {
-      setIsSignInVisible(true);
-      setIsSignUpVisible(false);
-      return;
-    }
+  const outsideClick = () => {
+    setIsLogoutVisible(false);
   };
+
+  useClickOutside(logoutRef, outsideClick);
 
   const checkUser = async () => {
     try {
@@ -48,9 +40,15 @@ export const Header = () => {
     }
   };
 
+  const signOut = () => {
+    logout();
+    setUser(null);
+  };
+
   useEffect(() => {
     checkUser();
   }, []);
+
   return (
     <header className="header">
       <ul className="header__links">
@@ -63,29 +61,31 @@ export const Header = () => {
           <TagIcon fontSize="large" />
           <li className="header__link-label">News</li>
         </NavLink>
+        <NavLink to={`/profile/${user.id}`} className="header__link link">
+          <PersonIcon fontSize="large" />
+          <li className="header__link-label">Profile</li>
+        </NavLink>
         <Button text="New message" onClick={() => 1} style="message" />
-        <Button
-          text="Login"
-          onClick={() => setIsSignInVisible((prevValue) => !prevValue)}
-          style="header"
-        />
+        <div className="header__user">
+          {isLogoutVisible && (
+            <div className="header__logout">
+              <Button text="Logout" onClick={signOut} style="logout" />
+            </div>
+          )}
+          <div
+            ref={logoutRef}
+            className="header__profile"
+            onClick={() => setIsLogoutVisible(true)}
+          >
+            <img src={user.photo} className="header__profile-photo" />
+            <div>
+              <p className="header__profile-name">{`${user.name} ${user.lastName}`}</p>
+              <p className="header__profile-email">{user.email}</p>
+            </div>
+            <h2 className="header__dots">...</h2>
+          </div>
+        </div>
       </ul>
-      {isSignInVisible && !user && (
-        <Portal
-          Component={() => <SignIn handleSwitch={handleSwitch} />}
-          isOpen={isSignInVisible}
-          text="Sign In"
-          handleClose={() => setIsSignInVisible(false)}
-        />
-      )}
-      {isSignUpVisible && (
-        <Portal
-          Component={() => <SignUp handleSwitch={handleSwitch} />}
-          isOpen={isSignUpVisible}
-          text="Sign Up"
-          handleClose={() => setIsSignUpVisible(false)}
-        />
-      )}
     </header>
   );
 };

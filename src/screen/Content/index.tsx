@@ -21,6 +21,7 @@ export const Content = () => {
   useEffect(() => {
     getPosts();
   }, []);
+
   return (
     <div className="content">
       <h1 className="content__label">Home</h1>

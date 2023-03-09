@@ -23,4 +23,5 @@ export interface IUser {
   photo?: string;
   role?: string;
   blocked?: boolean;
+  description?: string;
 }

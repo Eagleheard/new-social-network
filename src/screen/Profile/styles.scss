@@ -1,0 +1,160 @@
+@import "constants/const-styles.scss";
+
+.profile {
+  &__preview {
+    width: 100%;
+    height: 25vh;
+  }
+  &__user-photo {
+    position: relative;
+    bottom: 60px;
+    left: 20px;
+    width: 120px;
+    border: 5px solid $primary;
+    border-radius: 50%;
+  }
+
+  &__navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: $lato;
+    padding: 10px 20px;
+  }
+
+  &__user-info {
+    font-family: $lato;
+    margin-left: 50px;
+    opacity: 0.7;
+  }
+
+  &__username {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &__name {
+    font-family: $lato;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 50px;
+    padding: 0 20px;
+  }
+
+  &__usertag {
+    font-family: $lato;
+    padding: 0 20px;
+    opacity: 0.6;
+  }
+
+  &__description {
+    font-family: $lato;
+    font-weight: normal;
+    padding: 0 20px;
+    margin-top: 20px;
+  }
+
+  &__followers {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  &__followed {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 0 10px;
+    font-family: $lato;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $light-gray;
+      transition: background-color 0.2s ease-in-out;
+    }
+  }
+
+  &__follower {
+    display: flex;
+    margin: 0 30px;
+    justify-content: space-around;
+    font-family: $lato;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $light-gray;
+      transition: background-color 0.2s ease-in-out;
+    }
+  }
+
+  &__counter {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  &__post-count {
+    opacity: 0.6;
+  }
+
+  &__arrow {
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: $light-gray;
+      transition: background-color 0.2s ease-in-out;
+    }
+  }
+
+  &__user {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &__posts {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  &__link {
+    display: flex;
+    text-decoration: none;
+    font-family: $roboto;
+    font-size: 18px;
+    text-align: start;
+    color: $black;
+    transition: background-color 0.2s ease-in-out;
+    border-bottom: 1px solid $primary;
+    cursor: pointer;
+
+    &-label {
+      font-family: $roboto;
+      font-size: 18px;
+    }
+
+    &--active {
+      font-weight: bold;
+    }
+
+    &:hover {
+      transition: background-color 0.2s ease-in-out;
+      border-bottom: 1px solid $black;
+    }
+  }
+
+  &__followers-list,
+  &__followeds-list {
+    margin-top: 30px;
+  }
+}

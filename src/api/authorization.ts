@@ -25,5 +25,7 @@ export const authorization = () => {
 };
 
 export const logout = () => {
-  return axios.put("http://localhost:7000/api/user/logout");
+  return axios.put("http://localhost:7000/api/user/logout", null, {
+    withCredentials: true,
+  });
 };
